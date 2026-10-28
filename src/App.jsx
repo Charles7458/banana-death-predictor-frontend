@@ -20,6 +20,7 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const fileInputRef = useRef(null);
+  const API_URL = `${import.meta.env.VITE_API_URL}`
 
   // Handle single picture selection/capture
   const handleFileChange = (e) => {
@@ -42,7 +43,7 @@ export default function App() {
 
     try {
       // Replace with your active backend endpoint
-      const response = await fetch("http://localhost:8000/predict", {
+      const response = await fetch(API_URL, {
         method: "POST",
         body: formData,
       });
